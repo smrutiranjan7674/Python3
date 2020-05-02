@@ -11,6 +11,8 @@ def read(w):
         return data[w]
     elif w.title() in data:
         return data[w.title()]
+    elif w.upper() in data:
+        return data[w.upper()]
     elif len(get_close_matches(w,data.keys(),n=1)) > 0:
         yn=input("Did you mean {}?,Enter Y for Yes N for No: ".format((get_close_matches(w,data.keys(),n=1)[0])))
         if yn == "Y":
