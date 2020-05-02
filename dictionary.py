@@ -9,6 +9,8 @@ data=json.load(open('data.json'))
 def read(w):
     if w in data:
         return data[w]
+    elif w.title() in data:
+        return data[w.title()]
     elif len(get_close_matches(w,data.keys(),n=1)) > 0:
         yn=input("Did you mean {}?,Enter Y for Yes N for No: ".format((get_close_matches(w,data.keys(),n=1)[0])))
         if yn == "Y":
